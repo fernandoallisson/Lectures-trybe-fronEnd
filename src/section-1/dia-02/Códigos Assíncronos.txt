@@ -1,0 +1,41 @@
+#1 - Para lidar com códigos assíncronos em js é usando promisses. 
+
+#2 - o fetch é uma função nativa do js para fazer requisição externa. 
+
+#3 - é importante lidar com assincroniicidade para que a aplicação consiga se comunicar com APIs fornecidas pelo backend. 
+
+#4 - O código assíncrono é quando o código não é feito sequencialmente um após o outro. Então no caso é uma instrução executada fora do fluxo principal da aplicação. Esse código vai rodando em paralelo enquanto outra função ou outra coisa está rodando. depois o valor dessa função assíncrona voltará, mas com o resultado. 
+
+#5 - Para que eu execute uma função assíncrona eu preciso colocar a função: setTimeout(() => {}, 1000) sendo que o primeiro parâmetro é a função que queremos colocar para rodar e o segundo parâmetro é o tempo que queremos que rode a função. Ou seja, no exemplo, está para rodar depois de 1 segundo, ou 1000 milissegundos. 
+
+#6 - Promise é um objeto usado para processamento assíncrono. Um Promise (de “promessa”) representa um valor que pode estar disponível agora, no futuro ou nunca.
+
+#7 - Para construir nossas próprias promisses podemos criar usando o código: new Promise(); Esse construtor recebe uma função como parâmetro e essa função deverá ter dois argumentos: a função resolve e a função reject.
+new Promise((resolve, reject) => {});
+
+#8 - Quando a promise for resolvida, usamos a função resolve;
+Quando a promise for rejeitada, usamos a função reject.
+
+#9 - Repare que podemos retornar qualquer valor usando a função reject, mas geralmente é uma boa prática retornar um objeto de erro
+
+#10 - Para lidar com retorno assíncrono, a promisse tem dois métodos, o then e o catch. O then para tratar o caso de sucesso e o catch para o de falha.
+
+#11 - Para tratarmos, utilizamos o 
+.then((response) => {
+  // Resolvida
+})
+.catch((error) => {
+  // error.message
+})
+Esses pontos serão implementados na função que chamarmos e o response será o valor do resolve e o error será o valor do reject. 
+
+#12 - Caso seja necessário executar algum código após o retorno da promise, independentemente se ela foi resolvida ou rejeitada, podemos usar o método finally. Esse método recebe como parâmetro uma função, que não recebe nenhum argumento.
+
+#13 - fetch('URL')
+      .then((response) => response.json())
+      .then((dados) => {
+        // Aqui fica a lógica
+      })
+      .catch((error) => {
+        // Aqui pode mostrar o erro ou retornar
+      })
