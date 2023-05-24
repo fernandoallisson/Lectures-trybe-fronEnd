@@ -1,0 +1,27 @@
+Para a criação de um ambiente de desenvolvimento em Front End, seguiremos alguns passos. 
+
+#01 - O primeiro passo é a criação de um repositório remoto, e inicializar o gerenciador de pacotes 'npm' usando o compando (npm install -y) - com esse comando o inicializador do gerenciamento de pacotes npm já vai instalar no projeto o que precisaremos para usar de sua biblioteca npm; 
+
+#02 - Caso queira instalar alguma biblioteca externa, usaremos a principal biblioeca, que inclusive acabamos de instalar, o npm. Para instalar alguma em específica, podemos usar o npm install ------ (onde está os traços colocamos uma biblioteca, ex.: npm install nanoid) 
+
+#03 - Após fazer a instalação de qualquer biblioteca, vai baixar os arquivos da node_modules esses aruqivos não devem ir ao gitHub por ser apenas dependências do projeto. para que seja rodado localmente. Mas quando uma pessoa for usar o projeto criado na minha máquina ela não terá acesso justamente por não ter os arquivos da node modules, porém se vermos no arquivo package.json o que vai ter lá são todas as dependências de que precisamos para que nós consigamos rodar o projeto com as suas dependências, então, não há o que se preocupar em deixar de lado os arquivos que estejam na node_modules no gitHub. 
+
+#04 - Para que os arquivos não subam ao gitHub, devemos nos preocupar em deixá-los no arquivo que o próprio git consegue ler para que ignorem eles durante qualquer ação do git. É o .gitignore. É só criar o arquivo e colocar o nome do arquivo ou pasta que não queira subir. 
+
+#05 - Para que nosso projeto ele consiga rodar e consiga ser visto no navegador de forma fluida com algumas conversões que, por exemplo, o Go Live (extensão) não consegue fazer, é recorrermos a um pacote do npm que faz isso. Esse pacote é o 'vite'. instalaremos o 'vite' a partir do comando 'npm install vite'. Você pode conferir que esses pacotes estão instalados quando abrir o arquivo package.json e ver nas dependências o nome dos arquivos que foram instalados. 
+
+#06 - Podemos ter dois tipos de pacoes, os executáveis e os de código que usamos como exemplo o nanoid. Já o vite é um pacote executável, isso significa que eles serão rodados na nossa linha de comando.
+
+#07 - Por isso que agora ao invés de utilizarmos o npm para executar algum dos pacotes (executáveis) que baixamos, executamos através do npx. Então quando for utilizar o vite. Devemos usar a linha de comando 'npx vite'. E aí ele [npx] vai executar o executável [vite]. 
+
+#08 - Usaremos bastante o vite, então basicamente podemos criar uma linha de comando [scripts] lá no package.json; abriremos o arquivo e na parte scripts colocaremos uma chave qualquer [geralmente colocam dev] e o valor vite --open ('open' já para abrir direto. O vite funciona como o Go Live). Então ficaria - dev: vite --open; quando rodasse o 'npm run dev' ele saberia que deveria rodar aquele comando do npx;
+
+#09 - Para que possa conluir o ambiente de trabalho devemos colocar o esLint da trybe para rodar e apontar os erros do nosso projeto. podemos rodar o comando abaixo e ele automaticamnte irá para o esLint da Trybe: npm install @trybe/eslint-config-frontend
+
+#10 - Crie o arquivo .eslintrc.json e nele coloque o que está no topico #11; 
+
+#11 - {
+  "extends" : "@trybe/eslint-config-frontend"
+}
+
+#12 - Depois de fazer todas as coisas para o ambiente de desenvolvimento, usaremos o vite para nos ajudar a ver o conteúdo. Já não mais importaremos o style.css através do html e sim do JS. Isso fica mais organizado quando temos projetos maiores. Lá no Js deixamos assim, como exemplo: import "./style.css"; claro que deve colocar o nome do caminho do arquivo.
